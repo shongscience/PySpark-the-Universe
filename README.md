@@ -5,5 +5,5 @@ https://github.com/shongscience/PySpark-the-Universe/wiki
 
 ### Graph Statistics of Multiverse Simulations 
 
-We have 18 millions galaxies for each multiverse. 
+We have roughly 7 millions FoF halos for each multiverse, plus 0.3 billion sample for the standard universe. 
 
