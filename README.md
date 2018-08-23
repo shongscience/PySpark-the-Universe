@@ -14,7 +14,8 @@ Currently, I am dealing with 18 million galaxies. For even a small linking lengt
 Yes, this cannot be done without Spark Cluster and I need hundreds of Gb memory to complete my analyses.  
 Spark can handle even 1000Gb memory in calculations easily?! Another Yeh! 
 
-I am a pro-bigdata astronomer, strongly suggesting that we need to adopt the python/PySpark platform more actively in the astronomical field. 
+I am a pro-bigdata astronomer, strongly suggesting that we need to adopt the python/PySpark platform more actively in astronomical field. 
 
 Try, then you will love it! 
 
+For details, check out the wiki
