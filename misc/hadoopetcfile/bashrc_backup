@@ -1,0 +1,121 @@
+# .bashrc
+
+source /Users/shong/idl.sh
+# Source global definitions
+#if [ -f /etc/bashrc ]; then
+#	. /etc/bashrc
+#fi
+#PS1="[\u@\h \W]\\$ "
+PS1="[\u@\h:\w]\\$ "
+PS2="> "
+
+#export DISPLAY="localhost:0.0"
+#echo $PATH
+PATH=$PATH:$HOME/bin:/sw/bin:/usr/X11/bin:/usr/local/bin:/Users/shong/bin:/Users/shong/cosmologybin:/Users/shong/networkbin:/sw/sbin:/Users/shong/sparkbin
+IDL_STARTUP=/Users/shong/idlsrc/idlstartup.pro
+export IDL_STARTUP
+export EDITOR=vim
+
+
+# java home and scala home
+#export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+#export PATH=$JAVA_HOME:$PATH
+
+
+
+# Hadoop Path
+#export HADOOP_HOME=/usr/local/Cellar/hadoop/2.8.2
+export HADOOP_HOME=/usr/local/hadoop
+export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+export HADOOP_CONF_DIR=/usr/local/hadoop/etc/hadoop
+export LD_LIBRARY_PATH=/usr/local/hadoop/lib/native:$LD_LIBRARY_PATH
+
+
+# Scala Path
+#export SCALA_HOME=/usr/local/Cellar/scala/2.12.3
+export SCALA_HOME=/usr/local/Cellar/scala@2.11/2.11.11
+export PATH=$SCALA_HOME/bin:$PATH
+
+
+# Spark Path
+#export SPARK_HOME=/usr/local/Cellar/apache-spark/2.1.1/libexec
+#export PYTHONPATH=/usr/local/Cellar/apache-spark/2.1.1/libexec/python/:$PYTHONPATH
+#export PYTHONPATH=/usr/local/Cellar/apache-spark/2.1.1/libexec/python/lib/py4j-0.10.4-src.zip:$PYTHONPATH
+#export SPARK_HOME=/usr/local/Cellar/apache-spark/2.2.0/libexec
+#export PYTHONPATH=/usr/local/Cellar/apache-spark/2.2.0/libexec/python/:$PYTHONPATH
+#export PYTHONPATH=/usr/local/Cellar/apache-spark/2.2.0/libexec/python/lib/py4j-0.10.4-src.zip:$PYTHONPATH
+export SPARK_HOME=/usr/local/spark
+export PYTHONPATH=/usr/local/spark/python/:$PYTHONPATH
+export PYTHONPATH=/usr/local/spark/python/lib/py4j-0.10.4-src.zip:$PYTHONPATH
+export PATH=$SPARK_HOME/bin:$PATH
+
+# Anaconda and PySpark Path
+#export ANACONDA_ROOT=/Users/shong/anaconda2
+export ANACONDA_ROOT=/home/shong/anaconda2
+export PATH=$ANACONDA_ROOT/bin:$PATH
+#export PYSPARK_DRIVER_PYTHON=$ANACONDA_ROOT/bin/ipython
+#export PYSPARK_PYTHON=$ANACONDA_ROOT/bin/python
+export PYSPARK_PYTHON=/home/shong/anaconda2/bin/python
+#export PYSPARK_DRIVER_PYTHON=jupyter
+#export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
+
+ #User specific aliases and functions
+alias ls='ls -F -G'
+alias readlink='greadlink'
+alias ls='ls -F -G'
+alias ssh='ssh -Y'
+alias lslong='ls -al'
+alias lsd='ls -d */'
+alias gls='ls -alF |grep'
+#alias x='xterm -sl 1000 -sb -rightbar -bg grey -fg black -fs 16 &'
+alias x='xterm -sl 1000 -sb -rightbar -bg grey -fg black -fn 9x15 &'
+alias xx='xterm -sl 1000 -sb -rightbar -bg black -fg white -fs 12 &'
+alias xg='xgterm -sl 1000 -sbr -bg grey -fg black -fn 9x15 -e cl&'
+alias gmm='gcc -lm -O2'
+alias gomail='ssh fcrao1.astro.umass.edu -l shong'
+alias gonova='ssh nova.astro.umass.edu -l shong'
+alias gonova1='ssh nova1.astro.umass.edu -l shong'
+alias gokiwi='ssh kiwi.astro.umass.edu -l shong'
+alias gokea='ssh kea.astro.umass.edu -l shong'
+alias gocharon='ssh -Y 172.30.51.200 -l shong'
+alias gohades='ssh -Y 172.30.51.250 -l shong'
+alias gohetsim='ssh -Y stana.as.utexas.edu -l shareduser'
+alias gobeethoven='ssh -Y beethoven.tuc.noao.edu -l shong'
+alias gokestrel='ssh kestrel.astro.umass.edu -l shong'
+alias goananda='ssh ananda -l shong'
+alias skiwi='sftp shong@kiwi.astro.umass.edu'
+alias skea='sftp shong@kea.astro.umass.edu'
+alias skestrel='sftp shong@kestrel.astro.umass.edu'
+alias godata='cd ~/work/data/'
+alias gospec='cd /Users/shong/idlsrc/hsred/idl/spec2d'
+alias gohod='cd /Users/shong/work/cworkshops/HOD/hodfortran/'
+alias gonew='cd ~/work/newdata/'
+alias gohetdex='cd ~/work/hetdex/'
+alias gobig='cd ~/work/bigdata/'
+alias gomypro='cd ~/idlsrc/mypro/'
+alias gommt='cd /Users/shong/work/newdata/mmt/reducedmmtdata'
+alias ds='ds9 &'
+alias getidl='ssh -l shong -fN idlremote'
+alias gophi='ssh -Y 210.98.30.14 -l shong -p 9022'
+alias phispark='pyspark --master spark://210.98.30.14:9022 --packages graphframes:graphframes:0.6.0-spark2.3-s_2.11'
+alias localspark='pyspark --master local[4] --packages graphframes:graphframes:0.6.0-spark2.3-s_2.11'
+alias gonewton='ssh -l shong -p 1113 newton.kias.re.kr'
+alias gobaek='ssh -Y baekdu.kias.re.kr -l shong'
+alias goanna='ssh -Y annapurna.kias.re.kr -l shong'
+alias clusterspark='pyspark --master spark://master:7077 --packages graphframes:graphframes:0.6.0-spark2.3-s_2.11'
+alias cspark='pyspark --master spark://master:7077 --driver-memory 16g --executor-memory 58g --packages graphframes:graphframes:0.6.0-spark2.3-s_2.11'
+alias hdon='/usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh'
+alias smon='$SPARK_HOME/sbin/start-master.sh -h master'
+alias allon='/usr/local/hadoop/sbin/start-dfs.sh && /usr/local/hadoop/sbin/start-yarn.sh && $SPARK_HOME/sbin/start-master.sh -h master && $SPARK_HOME/sbin/start-slaves.sh'
+#alias alloff='$SPARK_HOME/sbin/stop-all.sh; /usr/local/hadoop/sbin/stop-all.sh'
+alias alloff='$SPARK_HOME/sbin/stop-all.sh && /usr/local/hadoop/sbin/stop-dfs.sh && /usr/local/hadoop/sbin/stop-yarn.sh'
+alias offcluster='$SPARK_HOME/sbin/stop-all.sh && /usr/local/hadoop/sbin/stop-all.sh'
+alias hfs='hadoop fs'
+alias conda3='/Users/shong/anaconda3/bin/conda'
+#. /usr/local/scisoft/bin/Setup.bash
+
+#fink setup
+#. /sw/bin/init.sh
+
+CVS_RSH=ssh
+CVSROOT=:pserver:anonymous@sdsscvs.astro.princeton.edu:/usr/local/cvsroot
